@@ -1,0 +1,30 @@
+{% extends "weather/index.html" %}
+{% block body %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table width="268" border="1" class="table table-light table-hover ">
+  <tr>
+    <th width="12" scope="col">#</th>
+    <th width="44" scope="col">date</th>
+    <th width="97" scope="col">weather</th>
+    <th width="87" scope="col">&nbsp;</th>
+  </tr>
+     {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.weather }}</td>
+    <td><a href="/delete_weather1/{{ i.weather_ID }}"class="btn btn-danger" onclick="return confirm('are you sure to delete?')">delete</a></td>
+  </tr>
+     {%  endfor %}
+</table>
+
+</body>
+</html>
+{% endblock %}
